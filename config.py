@@ -8,6 +8,7 @@ aircraft_root = '${DATASET_DIR}/fgvc-aircraft-2013b'
 car_root = '${DATASET_DIR}/cars'
 herbarium_dataroot = '${DATASET_DIR}/herbarium_19'
 imagenet_root = '${DATASET_DIR}/ImageNet'
+officehome_root = '/home/siddharth/Programs/GCD/OfficeHomeDataset_10072016'
 
 # OSR Split dir
 osr_split_dir = 'data/ssb_splits'

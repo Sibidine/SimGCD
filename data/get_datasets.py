@@ -6,6 +6,7 @@ from data.stanford_cars import get_scars_datasets
 from data.imagenet import get_imagenet_100_datasets, get_imagenet_1k_datasets
 from data.cub import get_cub_datasets
 from data.fgvc_aircraft import get_aircraft_datasets
+from officehome import get_officehome_dataset
 
 from copy import deepcopy
 import pickle
@@ -22,7 +23,8 @@ get_dataset_funcs = {
     'herbarium_19': get_herbarium_datasets,
     'cub': get_cub_datasets,
     'aircraft': get_aircraft_datasets,
-    'scars': get_scars_datasets
+    'scars': get_scars_datasets,
+    'officehome': get_officehome_dataset
 }
 
 
@@ -100,6 +102,11 @@ def get_class_splits(args):
 
         args.train_classes = class_splits['Old']
         args.unlabeled_classes = class_splits['New']
+    
+    elif args.dataset_name == 'officehome':
+        args.image_size = 32
+        args.train_classes = range(50)
+        args.unlabeled_classes = range(50,65)
 
     elif args.dataset_name == 'imagenet_100':
 
