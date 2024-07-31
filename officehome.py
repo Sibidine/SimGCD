@@ -13,7 +13,7 @@ def make_dataset(dir, image_ids, targets,domain, classes):
     images = []
     dir = os.path.expanduser(dir)
     for i in range(len(image_ids)):
-        item = (os.path.join(dir, domain, classes[targets[i]], '%s.jpg' % image_ids[i]), targets[i])
+        item = (os.path.join(dir, domain, classes[targets[i]], '%s' % image_ids[i]), targets[i])
         images.append(item)
         
     return images
@@ -27,7 +27,8 @@ def find_classes(classes_file):
     for line in f:
         split_line = line.split(' ')
         image_ids.append(split_line[0])
-        targets.append(' '.join(split_line[1:]))
+        targets.append((' '.join(split_line[1:])).rstrip())
+
     f.close()
 
     # index class names
