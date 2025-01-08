@@ -39,10 +39,10 @@ def find_classes(classes_file):
     return (image_ids, targets, classes, class_to_idx)
 
 class OfficeHome(Dataset):
-    domains = ['Product', 'Real World', 'Clipart', 'Art']
+    domains = ['Product', 'Real World', 'Clipart', 'Art', 'combined']
     splits = ['train','val','trainval','test']
 
-    def __init__(self, root, domain='Product', split='train', transform=None,
+    def __init__(self, root, domain='combined', split='train', transform=None,
                  target_transform=None, loader=default_loader, download=False):
         if split not in self.splits:
             raise ValueError('Split "{}" not found. Valid splits are: {}'.format(
